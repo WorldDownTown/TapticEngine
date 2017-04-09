@@ -8,7 +8,7 @@
 
 ## Overview
 "TapticEngine" generates iOS Device vibrations.
-This library wrapps on [UIImpactFeedbackGenerator](https://developer.apple.com/reference/uikit/uiimpactfeedbackgenerator), [UISelectionFeedbackGenerator](https://develo    per.apple.com/reference/uikit/uiselectionfeedbackgenerator), [UINotificationFeedbackGenerator](https://developer.apple.com/reference/uikit/uinotificationfeedbackgenerator).
+This library wrapps on [UIImpactFeedbackGenerator](https://developer.apple.com/reference/uikit/uiimpactfeedbackgenerator), [UISelectionFeedbackGenerator](https://developer.apple.com/reference/uikit/uiselectionfeedbackgenerator), [UINotificationFeedbackGenerator](https://developer.apple.com/reference/uikit/uinotificationfeedbackgenerator).
 
 <img src="https://dl2.pushbulletusercontent.com/TKSfPYAu8pl5NARwARj2E3j87llwnXcs/taptic_engine.png" alt="demo_screenshot" width="375px" />
 
