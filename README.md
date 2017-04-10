@@ -10,7 +10,7 @@
 TapticEngine generates haptic feedback vibrations on iOS device.
 This library wrapps on [UIImpactFeedbackGenerator](https://developer.apple.com/reference/uikit/uiimpactfeedbackgenerator), [UISelectionFeedbackGenerator](https://developer.apple.com/reference/uikit/uiselectionfeedbackgenerator), [UINotificationFeedbackGenerator](https://developer.apple.com/reference/uikit/uinotificationfeedbackgenerator).
 
-<img src="https://raw.githubusercontent.com/WorldDownTown/TapticEngine/master/taptic_engine.png" alt="demo_screenshot" width="375px" />
+<img src="https://raw.githubusercontent.com/WorldDownTown/TapticEngine/master/images/taptic_engine.png" alt="demo_screenshot" width="375px" />
 
 ## Demo
 Build Xcode project.
@@ -42,6 +42,15 @@ TapticEngine.notification.feedback(.warning)
 
 // Triggers a notification feedback, indicating that a task has failed. (`UINotificationFeedbackType.error`)
 TapticEngine.notification.feedback(.error)
+
+// Prepare a impact feedback for `UIImpactFeedbackStyle.light`.
+TapticEngine.impact.prepare(.light)
+
+// Prepare a selection feedback.
+TapticEngine.selection.prepare()
+
+// Prepare a notification feedback.
+TapticEngine.notification.prepare()
 ```
 
 ## Requirements
