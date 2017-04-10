@@ -12,30 +12,30 @@ import TapticEngine
 class ViewController: UIViewController {
 
     @IBAction private func light() {
-        TapticEngine.feedback(.light)
+        TapticEngine.impact.feedback(.light)
     }
 
     @IBAction private func medium() {
-        TapticEngine.feedback(.medium)
+        TapticEngine.impact.feedback(.medium)
     }
 
     @IBAction private func heavy() {
-        TapticEngine.feedback(.heavy)
+        TapticEngine.impact.feedback(.heavy)
     }
 
     @IBAction private func selection() {
-        TapticEngine.feedback(.selection)
+        TapticEngine.selection.feedback()
     }
 
     @IBAction private func success() {
-        TapticEngine.feedback(.success)
+        TapticEngine.notification.feedback(.success)
     }
 
     @IBAction private func warning() {
-        TapticEngine.feedback(.warning)
+        TapticEngine.notification.feedback(.warning)
     }
 
     @IBAction private func error() {
-        TapticEngine.feedback(.error)
+        TapticEngine.notification.feedback(.error)
     }
 }

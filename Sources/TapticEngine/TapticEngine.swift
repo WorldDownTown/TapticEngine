@@ -9,80 +9,144 @@
 import UIKit
 
 /// Generates iOS Device vibrations by UIFeedbackGenerator.
-public struct TapticEngine {
+open class TapticEngine {
 
-    /// Feedback vibration types
-    ///
-    /// - light: A impact feedback between small, light user interface elements.
-    /// - medium: A impact feedback between moderately sized user interface elements.
-    /// - heavy: A impact feedback between large, heavy user interface elements.
-    /// - selection: A selection feedback to communicate movement through a series of discrete values.
-    /// - success: A notification feedback, indicating that a task has completed successfully.
-    /// - warning: A notification feedback, indicating that a task has produced a warning.
-    /// - error: A notification feedback, indicating that a task has failed.
-    public enum FeedbackType {
-        case light, medium, heavy, selection, success, warning, error
-    }
+    public static let impact: Impact = Impact()
+    public static let selection: Selection = Selection()
+    public static let notification: Notification = Notification()
 
-    /// Triggers feedback.
-    ///
-    /// - Parameter type: Feedback style
-    public static func feedback(_ type: FeedbackType = .light) {
-        switch type {
-        case .light, .medium, .heavy:
-            feedbackImpact(type)
-        case .selection:
-            feedbackSelection()
-        case .success, .warning, .error:
-            feedbackNotification(type)
+
+    /// Wrapper of `UIImpactFeedbackGenerator`
+    open class Impact {
+
+        /// Impact feedback styles
+        ///
+        /// - light: A impact feedback between small, light user interface elements.
+        /// - medium: A impact feedback between moderately sized user interface elements.
+        /// - heavy: A impact feedback between large, heavy user interface elements.
+        public enum ImpactStyle {
+            case light, medium, heavy
+        }
+
+        private var style: ImpactStyle = .light
+        private var generator: Any? = Impact.makeGenerator(.light)
+
+        private static func makeGenerator(_ style: ImpactStyle) -> Any? {
+            guard #available(iOS 10.0, *) else { return nil }
+
+            let feedbackStyle: UIImpactFeedbackStyle
+            switch style {
+            case .light:
+                feedbackStyle = .light
+            case .medium:
+                feedbackStyle = .medium
+            case .heavy:
+                feedbackStyle = .heavy
+            }
+            let generator: UIImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: feedbackStyle)
+            generator.prepare()
+            return generator
+        }
+
+        private func updateGeneratorIfNeeded(_ style: ImpactStyle) {
+            guard self.style != style else { return }
+            generator = Impact.makeGenerator(style)
+            self.style = style
+        }
+
+        public func feedback(_ style: ImpactStyle) {
+            guard #available(iOS 10.0, *) else { return }
+
+            updateGeneratorIfNeeded(style)
+
+            guard let generator = generator as? UIImpactFeedbackGenerator else { return }
+
+            generator.impactOccurred()
+            generator.prepare()
+        }
+
+        public func prepare(_ style: ImpactStyle) {
+            guard #available(iOS 10.0, *) else { return }
+
+            updateGeneratorIfNeeded(style)
+
+            guard let generator = generator as? UIImpactFeedbackGenerator else { return }
+
+            generator.prepare()
         }
     }
 
-    private static func feedbackImpact(_ type: FeedbackType) {
-        guard #available(iOS 10.0, *) else { return }
 
-        let feedbackStyle: UIImpactFeedbackStyle
-        switch type {
-        case .light:
-            feedbackStyle = .light
-        case .medium:
-            feedbackStyle = .medium
-        case .heavy:
-            feedbackStyle = .heavy
-        default:
-            return
+    /// Wrapper of `UISelectionFeedbackGenerator`
+    open class Selection {
+
+        private var generator: Any? = {
+            guard #available(iOS 10.0, *) else { return nil }
+
+            let generator: UISelectionFeedbackGenerator = UISelectionFeedbackGenerator()
+            generator.prepare()
+            return generator
+        }()
+
+        public func feedback() {
+            guard #available(iOS 10.0, *) else { return }
+            guard let generator = generator as? UISelectionFeedbackGenerator else { return }
+
+            generator.selectionChanged()
+            generator.prepare()
         }
 
-        let feedbackGenerator: UIImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: feedbackStyle)
-        feedbackGenerator.prepare()
-        feedbackGenerator.impactOccurred()
+        public func prepare() {
+            guard #available(iOS 10.0, *) else { return }
+            guard let generator = generator as? UISelectionFeedbackGenerator else { return }
+
+            generator.prepare()
+        }
     }
 
-    private static func feedbackSelection() {
-        guard #available(iOS 10.0, *) else { return }
 
-        let feedbackGenerator: UISelectionFeedbackGenerator = UISelectionFeedbackGenerator()
-        feedbackGenerator.prepare()
-        feedbackGenerator.selectionChanged()
-    }
+    /// Wrapper of `UINotificationFeedbackGenerator`
+    open class Notification {
 
-    private static func feedbackNotification(_ type: FeedbackType) {
-        guard #available(iOS 10.0, *) else { return }
-
-        let feedbackType: UINotificationFeedbackType
-        switch type {
-        case .success:
-            feedbackType = .success
-        case .warning:
-            feedbackType = .warning
-        case .error:
-            feedbackType = .error
-        default:
-            return
+        /// Notification feedback types
+        ///
+        /// - success: A notification feedback, indicating that a task has completed successfully.
+        /// - warning: A notification feedback, indicating that a task has produced a warning.
+        /// - error: A notification feedback, indicating that a task has failed.
+        public enum NotificationType {
+            case success, warning, error
         }
 
-        let feedbackGenerator: UINotificationFeedbackGenerator = UINotificationFeedbackGenerator()
-        feedbackGenerator.prepare()
-        feedbackGenerator.notificationOccurred(feedbackType)
+        private var generator: Any? = {
+            guard #available(iOS 10.0, *) else { return nil }
+
+            let generator: UINotificationFeedbackGenerator = UINotificationFeedbackGenerator()
+            generator.prepare()
+            return generator
+        }()
+
+        public func feedback(_ type: NotificationType) {
+            guard #available(iOS 10.0, *) else { return }
+            guard let generator = generator as? UINotificationFeedbackGenerator else { return }
+
+            let feedbackType: UINotificationFeedbackType
+            switch type {
+            case .success:
+                feedbackType = .success
+            case .warning:
+                feedbackType = .warning
+            case .error:
+                feedbackType = .error
+            }
+            generator.notificationOccurred(feedbackType)
+            generator.prepare()
+        }
+
+        public func prepare() {
+            guard #available(iOS 10.0, *) else { return }
+            guard let generator = generator as? UINotificationFeedbackGenerator else { return }
+
+            generator.prepare()
+        }
     }
 }
