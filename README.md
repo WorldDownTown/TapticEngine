@@ -7,10 +7,10 @@
 [![Downloads with CocoaPods](https://img.shields.io/cocoapods/dt/TapticEngine.svg)](http://cocoadocs.org/docsets/TapticEngine/)
 
 ## Overview
-"TapticEngine" generates iOS Device vibrations.
+TapticEngine generates haptic feedback vibrations on iOS device.
 This library wrapps on [UIImpactFeedbackGenerator](https://developer.apple.com/reference/uikit/uiimpactfeedbackgenerator), [UISelectionFeedbackGenerator](https://developer.apple.com/reference/uikit/uiselectionfeedbackgenerator), [UINotificationFeedbackGenerator](https://developer.apple.com/reference/uikit/uinotificationfeedbackgenerator).
 
-<img src="https://dl2.pushbulletusercontent.com/TKSfPYAu8pl5NARwARj2E3j87llwnXcs/taptic_engine.png" alt="demo_screenshot" width="375px" />
+<img src="https://raw.githubusercontent.com/WorldDownTown/TapticEngine/master/taptic_engine.png" alt="demo_screenshot" width="375px" />
 
 ## Demo
 Build Xcode project.
@@ -23,25 +23,25 @@ Build Xcode project.
 
 ```swift
 // Triggers a impact feedback between small, light user interface elements. (`UIImpactFeedbackStyle.light`)
-TapticEngine.feedback(.light)
+TapticEngine.impact.feedback(.light)
 
 // Triggers a impact feedback between moderately sized user interface elements. (`UIImpactFeedbackStyle.medium`)
-TapticEngine.feedback(.medium)
+TapticEngine.impact.feedback(.medium)
 
 // Triggers a impact feedback between large, heavy user interface elements.  (`UIImpactFeedbackStyle.heavy`)
-TapticEngine.feedback(.heavy)
+TapticEngine.impact.feedback(.heavy)
 
 // Triggers a selection feedback to communicate movement through a series of discrete values.
-TapticEngine.feedback(.selection)
+TapticEngine.selection.feedback()
 
 // Triggers a notification feedback, indicating that a task has completed successfully. (`UINotificationFeedbackType.success`)
-TapticEngine.feedback(.success)
+TapticEngine.notification.feedback(.success)
 
 // Triggers a notification feedback, indicating that a task has produced a warning. (`UINotificationFeedbackType.warning`)
-TapticEngine.feedback(.warning)
+TapticEngine.notification.feedback(.warning)
 
 // Triggers a notification feedback, indicating that a task has failed. (`UINotificationFeedbackType.error`)
-TapticEngine.feedback(.error)
+TapticEngine.notification.feedback(.error)
 ```
 
 ## Requirements

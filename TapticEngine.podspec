@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name                  = 'TapticEngine'
-  s.version               = '1.0.0'
+  s.version               = '1.1.0'
   s.summary               = '"TapticEngine" generates iOS Device vibrations.'
   s.description           = <<-DESC
-                            "TapticEngine" generates iOS Device vibrations.
+                            TapticEngine generates haptic feedback vibrations on iOS device.
                             This library wrapps on [UIImpactFeedbackGenerator](https://developer.apple.com/reference/uikit/uiimpactfeedbackgenerator), [UISelectionFeedbackGenerator](https://developer.apple.com/reference/uikit/uiselectionfeedbackgenerator), [UINotificationFeedbackGenerator](https://developer.apple.com/reference/uikit/uinotificationfeedbackgenerator).
                             DESC
   s.homepage              = 'https://github.com/WorldDownTown/TapticEngine'

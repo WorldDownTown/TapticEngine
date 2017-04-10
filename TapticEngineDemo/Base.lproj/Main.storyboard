@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,49 +24,49 @@
                                 <rect key="frame" x="88.5" y="40" width="198" height="30"/>
                                 <state key="normal" title="UIImpactFeedbackStyle.light"/>
                                 <connections>
-                                    <action selector="light" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZMD-Th-Cfr"/>
+                                    <action selector="light" destination="BYZ-38-t0r" eventType="touchDown" id="yYJ-j4-Kz5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5a0-XJ-jV9">
                                 <rect key="frame" x="76" y="90" width="223" height="30"/>
                                 <state key="normal" title="UIImpactFeedbackStyle.medium"/>
                                 <connections>
-                                    <action selector="medium" destination="BYZ-38-t0r" eventType="touchUpInside" id="WgB-Jw-Gdq"/>
+                                    <action selector="medium" destination="BYZ-38-t0r" eventType="touchDown" id="mCp-t3-QOL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BuO-f3-Rey">
                                 <rect key="frame" x="83.5" y="140" width="208" height="30"/>
                                 <state key="normal" title="UIImpactFeedbackStyle.heavy"/>
                                 <connections>
-                                    <action selector="heavy" destination="BYZ-38-t0r" eventType="touchUpInside" id="eaQ-NQ-3D1"/>
+                                    <action selector="heavy" destination="BYZ-38-t0r" eventType="touchDown" id="R13-B5-IKu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6d8-5K-K0d">
                                 <rect key="frame" x="80" y="190" width="215" height="30"/>
                                 <state key="normal" title="UISelectionFeedbackGenerator"/>
                                 <connections>
-                                    <action selector="selection" destination="BYZ-38-t0r" eventType="touchUpInside" id="sD0-Of-qjU"/>
+                                    <action selector="selection" destination="BYZ-38-t0r" eventType="touchDown" id="3XB-XE-hd4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4WD-Av-vqB">
                                 <rect key="frame" x="60.5" y="240" width="254" height="30"/>
                                 <state key="normal" title="UINotificationFeedbackType.success"/>
                                 <connections>
-                                    <action selector="success" destination="BYZ-38-t0r" eventType="touchUpInside" id="UFA-M3-yea"/>
+                                    <action selector="success" destination="BYZ-38-t0r" eventType="touchDown" id="FrZ-FL-3mP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vvg-m9-xQl">
                                 <rect key="frame" x="62" y="290" width="251" height="30"/>
                                 <state key="normal" title="UINotificationFeedbackType.warning"/>
                                 <connections>
-                                    <action selector="warning" destination="BYZ-38-t0r" eventType="touchUpInside" id="cPL-Oi-QCw"/>
+                                    <action selector="warning" destination="BYZ-38-t0r" eventType="touchDown" id="sDF-GL-LAd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMF-HE-Orx">
                                 <rect key="frame" x="72" y="340" width="231" height="30"/>
                                 <state key="normal" title="UINotificationFeedbackType.error"/>
                                 <connections>
-                                    <action selector="error" destination="BYZ-38-t0r" eventType="touchUpInside" id="S8O-Pc-qNV"/>
+                                    <action selector="error" destination="BYZ-38-t0r" eventType="touchDown" id="E1C-YO-7a4"/>
                                 </connections>
                             </button>
                         </subviews>
