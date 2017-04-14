@@ -23,13 +23,13 @@ Build Xcode project.
 ## Usage
 
 ```swift
-// Triggers a impact feedback between small, light user interface elements. (`UIImpactFeedbackStyle.light`)
+// Triggers an impact feedback between small, light user interface elements. (`UIImpactFeedbackStyle.light`)
 TapticEngine.impact.feedback(.light)
 
-// Triggers a impact feedback between moderately sized user interface elements. (`UIImpactFeedbackStyle.medium`)
+// Triggers an impact feedback between moderately sized user interface elements. (`UIImpactFeedbackStyle.medium`)
 TapticEngine.impact.feedback(.medium)
 
-// Triggers a impact feedback between large, heavy user interface elements.  (`UIImpactFeedbackStyle.heavy`)
+// Triggers an impact feedback between large, heavy user interface elements.  (`UIImpactFeedbackStyle.heavy`)
 TapticEngine.impact.feedback(.heavy)
 
 // Triggers a selection feedback to communicate movement through a series of discrete values.
@@ -44,7 +44,7 @@ TapticEngine.notification.feedback(.warning)
 // Triggers a notification feedback, indicating that a task has failed. (`UINotificationFeedbackType.error`)
 TapticEngine.notification.feedback(.error)
 
-// Prepare a impact feedback for `UIImpactFeedbackStyle.light`.
+// Prepare an impact feedback for `UIImpactFeedbackStyle.light`.
 TapticEngine.impact.prepare(.light)
 
 // Prepare a selection feedback.
