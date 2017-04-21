@@ -50,6 +50,7 @@ open class TapticEngine {
 
         private func updateGeneratorIfNeeded(_ style: ImpactStyle) {
             guard self.style != style else { return }
+
             generator = Impact.makeGenerator(style)
             self.style = style
         }
