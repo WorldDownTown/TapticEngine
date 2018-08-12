@@ -1,7 +1,7 @@
 # TapticEngine
 
 [![License](https://img.shields.io/:license-mit-blue.svg)](https://doge.mit-license.org)
-![Swift](https://img.shields.io/badge/Swift-3.1-orange.svg?style=flat)
+[![Swift](https://img.shields.io/badge/Swift-4.1-orange.svg?style=flat)](https://developer.apple.com/swift)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/TapticEngine.svg?style=flat)](http://cocoadocs.org/docsets/TapticEngine/)
 [![Downloads with CocoaPods](https://img.shields.io/cocoapods/dt/TapticEngine.svg)](http://cocoadocs.org/docsets/TapticEngine/)
@@ -55,7 +55,7 @@ TapticEngine.notification.prepare()
 ```
 
 ## Requirements
-- Swift 3.0+
+- Swift 4.0+
 - iOS 9.0+ (**But it works on iOS 10 or later. On iOS 9, it does nothing.**)
 
 ## Installation
