@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = 'TapticEngine'
-  s.version               = '1.1.0'
+  s.version               = '1.2.0'
   s.summary               = '"TapticEngine" generates iOS Device vibrations.'
   s.description           = <<-DESC
                             TapticEngine generates haptic feedback vibrations on iOS device.
