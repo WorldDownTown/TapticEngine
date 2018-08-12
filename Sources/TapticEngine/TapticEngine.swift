@@ -10,15 +10,13 @@ import UIKit
 
 /// Generates iOS Device vibrations by UIFeedbackGenerator.
 open class TapticEngine {
-
-    public static let impact: Impact = Impact()
-    public static let selection: Selection = Selection()
-    public static let notification: Notification = Notification()
+    public static let impact: Impact = .init()
+    public static let selection: Selection = .init()
+    public static let notification: Notification = .init()
 
 
     /// Wrapper of `UIImpactFeedbackGenerator`
     open class Impact {
-
         /// Impact feedback styles
         ///
         /// - light: A impact feedback between small, light user interface elements.
@@ -80,7 +78,6 @@ open class TapticEngine {
 
     /// Wrapper of `UISelectionFeedbackGenerator`
     open class Selection {
-
         private var generator: Any? = {
             guard #available(iOS 10.0, *) else { return nil }
 
@@ -90,16 +87,16 @@ open class TapticEngine {
         }()
 
         public func feedback() {
-            guard #available(iOS 10.0, *) else { return }
-            guard let generator = generator as? UISelectionFeedbackGenerator else { return }
+            guard #available(iOS 10.0, *),
+                let generator = generator as? UISelectionFeedbackGenerator else { return }
 
             generator.selectionChanged()
             generator.prepare()
         }
 
         public func prepare() {
-            guard #available(iOS 10.0, *) else { return }
-            guard let generator = generator as? UISelectionFeedbackGenerator else { return }
+            guard #available(iOS 10.0, *),
+                let generator = generator as? UISelectionFeedbackGenerator else { return }
 
             generator.prepare()
         }
@@ -108,7 +105,6 @@ open class TapticEngine {
 
     /// Wrapper of `UINotificationFeedbackGenerator`
     open class Notification {
-
         /// Notification feedback types
         ///
         /// - success: A notification feedback, indicating that a task has completed successfully.
@@ -127,8 +123,8 @@ open class TapticEngine {
         }()
 
         public func feedback(_ type: NotificationType) {
-            guard #available(iOS 10.0, *) else { return }
-            guard let generator = generator as? UINotificationFeedbackGenerator else { return }
+            guard #available(iOS 10.0, *),
+                let generator = generator as? UINotificationFeedbackGenerator else { return }
 
             let feedbackType: UINotificationFeedbackType
             switch type {
@@ -144,8 +140,8 @@ open class TapticEngine {
         }
 
         public func prepare() {
-            guard #available(iOS 10.0, *) else { return }
-            guard let generator = generator as? UINotificationFeedbackGenerator else { return }
+            guard #available(iOS 10.0, *),
+                let generator = generator as? UINotificationFeedbackGenerator else { return }
 
             generator.prepare()
         }
